@@ -3,4 +3,4 @@
 ## Branches: 
 - `standalone`: Projet 100%% standalone 
 - `modulaire`: Projet modulaire classique 
-- `Tp1`: Initiation à la conteneurisation avec Docker
+- `Tp1`: wokshop2: Manipulation des Composants
