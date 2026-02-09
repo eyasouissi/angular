@@ -1,0 +1,9 @@
+<div class="suggestions-container">
+  <h2>📋 Liste des suggestions</h2>
+  <ul>
+    <li *ngFor="let s of suggestions">
+      <span>{{ s.title }}</span>
+      <button [routerLink]="['/suggestions', s.id]" class="btn-details">Détails</button>
+    </li>
+  </ul>
+</div>

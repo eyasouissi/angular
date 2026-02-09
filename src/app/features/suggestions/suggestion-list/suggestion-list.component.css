@@ -1,0 +1,52 @@
+/* suggestion-list.component.css */
+.suggestions-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f4f6fb;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(43, 46, 74, 0.12);
+  text-align: center;
+}
+
+.suggestions-container h2 {
+  color: #2b2e4a;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(43, 46, 74, 0.08);
+}
+
+li span {
+  color: #2b2e4a;
+  font-weight: 500;
+}
+
+.btn-details {
+  background: linear-gradient(135deg, #6c63ff, #4dabf7);
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-details:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(76, 171, 247, 0.4);
+}

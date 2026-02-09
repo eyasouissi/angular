@@ -1,0 +1,36 @@
+/* suggestion-details.component.css */
+.suggestions-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f4f6fb;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(43, 46, 74, 0.12);
+  text-align: center;
+}
+
+.suggestions-container h2 {
+  color: #2b2e4a;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #444;
+  font-size: 18px;
+}
+
+.btn-back {
+  background: linear-gradient(135deg, #6c63ff, #4dabf7);
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-back:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(76, 171, 247, 0.4);
+}
