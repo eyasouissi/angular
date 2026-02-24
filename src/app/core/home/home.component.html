@@ -1,28 +1,64 @@
-<div class="home-container">
-  <h2>Bienvenue 👋</h2>
+<div class="home">
 
-  <p class="subtitle">
-    Application SPA développée avec Angular
-  </p>
-
-  <div class="features">
-    <div class="card">
-      <h3>🚀 Routing</h3>
-      <p>Navigation fluide entre les pages sans rechargement.</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Plateforme collaborative</div>
+      <h1 class="hero-title">
+        Vos idées<br>
+        <em>méritent</em><br>
+        d'être entendues.
+      </h1>
+      <p class="hero-sub">
+        Partagez vos suggestions d'amélioration et consultez celles
+        de la communauté. Simple, rapide, efficace.
+      </p>
+      <div class="hero-actions">
+        <a routerLink="/suggestions" class="btn-primary">Voir les suggestions</a>
+        <a routerLink="/suggestions/new" class="btn-outline">Ajouter la mienne →</a>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>🧩 Lazy Loading</h3>
-      <p>Chargement des modules à la demande.</p>
+    <div class="hero-right">
+      <div class="hero-card card-1">
+        <span class="card-tag sage">Infrastructure</span>
+        <p>"Améliorer la connexion WiFi dans les salles de réunion."</p>
+        <span class="card-status">✓ En cours</span>
+      </div>
+      <div class="hero-card card-2">
+        <span class="card-tag gold">RH</span>
+        <p>"Proposer des horaires flexibles pour les équipes."</p>
+        <span class="card-status pending">⏳ En attente</span>
+      </div>
+      <div class="hero-card card-3">
+        <span class="card-tag accent">Innovation</span>
+        <p>"Créer un espace de coworking collaboratif."</p>
+        <span class="card-status done">✓ Réalisé</span>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>🔗 Routes paramétrées</h3>
-      <p>Affichage dynamique des détails via l’URL.</p>
+  <!-- STATS -->
+  <section class="stats-row">
+    <div class="stat">
+      <span class="stat-num">124</span>
+      <span class="stat-label">Suggestions soumises</span>
     </div>
-  </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">38</span>
+      <span class="stat-label">En cours de traitement</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">56</span>
+      <span class="stat-label">Réalisées</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Catégories</span>
+    </div>
+  </section>
 
-  <a routerLink="/suggestions" class="btn">
-    Voir les suggestions
-  </a>
 </div>

@@ -1,15 +1,20 @@
 <header class="app-header">
-  <h1>📝 Gestion des Suggestions</h1>
+  <div class="logo">
+    <a routerLink="/" routerLinkActive="active">
+      <span class="logo-mark">S</span>
+      <span class="logo-text">Suggestions</span>
+    </a>
+  </div>
 
   <nav class="nav">
     <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-      Home
+      Accueil
     </a>
-
     <a routerLink="/suggestions" routerLinkActive="active">
       Suggestions
     </a>
+    <a routerLink="/suggestions/new" class="nav-cta">
+      + Nouvelle
+    </a>
   </nav>
 </header>
-
-<hr />

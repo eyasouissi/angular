@@ -1,5 +1,36 @@
-<div class="suggestions-container">
-  <h2>📝 Détails de la suggestion</h2>
-  <p>ID : <strong>{{ id }}</strong></p>
-  <button (click)="back()" class="btn-back">Retour à la liste</button>
+<div class="page">
+  <a routerLink="/suggestions" class="back-link">← Retour à la liste</a>
+
+  <div class="detail-card">
+    <div class="card-header">
+      <div class="header-meta">
+        <span class="page-tag">Suggestion #{{ id }}</span>
+        <span class="s-status status-progress">En cours</span>
+      </div>
+      <h1 class="page-title">Détails de la suggestion</h1>
+    </div>
+
+    <div class="detail-body">
+      <div class="detail-row">
+        <span class="detail-label">Identifiant</span>
+        <span class="detail-value mono">#{{ id }}</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Catégorie</span>
+        <span class="detail-value">—</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Date de soumission</span>
+        <span class="detail-value">—</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Statut</span>
+        <span class="detail-value">—</span>
+      </div>
+    </div>
+
+    <div class="card-actions">
+      <button (click)="back()" class="btn-back">← Retour</button>
+    </div>
+  </div>
 </div>

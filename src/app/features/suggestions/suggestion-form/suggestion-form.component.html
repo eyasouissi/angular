@@ -1,0 +1,69 @@
+<div class="page">
+  <a routerLink="/suggestions" class="back-link">← Retour à la liste</a>
+
+  <div class="form-card">
+    <div class="card-header">
+      <span class="page-tag">Nouvelle suggestion</span>
+      <h1 class="page-title">Partagez votre idée</h1>
+      <p class="page-sub">Chaque grande amélioration commence par une simple idée.</p>
+    </div>
+
+    <form class="form-body" [formGroup]="suggestionForm" (ngSubmit)="onSubmit()">
+
+      <!-- TITRE -->
+      <div class="form-group">
+        <label for="title">Titre</label>
+        <input id="title" type="text" formControlName="title" placeholder="Ex: Amélioration Wifi…" />
+        <div *ngIf="suggestionForm.get('title')?.touched && suggestionForm.get('title')?.invalid">
+          <span class="error" *ngIf="suggestionForm.get('title')?.errors?.['required']">Le titre est obligatoire.</span>
+          <span class="error" *ngIf="suggestionForm.get('title')?.errors?.['minlength']">Minimum 5 caractères.</span>
+          <span class="error" *ngIf="suggestionForm.get('title')?.errors?.['pattern']">Doit commencer par une majuscule.</span>
+        </div>
+      </div>
+
+      <!-- DESCRIPTION -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description" rows="4"
+          placeholder="Décrivez votre suggestion en détail…"></textarea>
+        <div *ngIf="suggestionForm.get('description')?.touched && suggestionForm.get('description')?.invalid">
+          <span class="error" *ngIf="suggestionForm.get('description')?.errors?.['required']">La description est obligatoire.</span>
+          <span class="error" *ngIf="suggestionForm.get('description')?.errors?.['minlength']">Minimum 30 caractères.</span>
+        </div>
+      </div>
+
+      <!-- CATEGORIE -->
+      <div class="form-group">
+        <label for="category">Catégorie</label>
+        <select id="category" formControlName="category">
+          <option value="">-- Sélectionner une catégorie --</option>
+          <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+        </select>
+        <div *ngIf="suggestionForm.get('category')?.touched && suggestionForm.get('category')?.invalid">
+          <span class="error">La catégorie est obligatoire.</span>
+        </div>
+      </div>
+
+      <!-- DATE & STATUS (readonly) -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input id="date" type="text" formControlName="date" readonly class="readonly-input" />
+        </div>
+        <div class="form-group">
+          <label for="status">Statut</label>
+          <input id="status" type="text" formControlName="status" readonly class="readonly-input" />
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="form-actions">
+        <a routerLink="/suggestions" class="btn-cancel">Annuler</a>
+        <button type="submit" [disabled]="suggestionForm.invalid" class="btn-submit">
+          🚀 Soumettre la suggestion
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

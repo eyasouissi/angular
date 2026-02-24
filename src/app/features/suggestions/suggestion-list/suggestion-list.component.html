@@ -1,9 +1,35 @@
-<div class="suggestions-container">
-  <h2>📋 Liste des suggestions</h2>
-  <ul>
-    <li *ngFor="let s of suggestions">
-      <span>{{ s.title }}</span>
-      <button [routerLink]="['/suggestions', s.id]" class="btn-details">Détails</button>
-    </li>
-  </ul>
+<div class="page">
+
+  <div class="page-header">
+    <div>
+      <span class="page-tag">Communauté</span>
+      <h1 class="page-title">Liste des suggestions</h1>
+    </div>
+    <a routerLink="/suggestions/new" class="btn-add">+ Nouvelle suggestion</a>
+  </div>
+
+  <div class="suggestions-grid">
+    <div class="suggestion-card" *ngFor="let s of suggestions">
+      <div class="card-top">
+        <span class="s-tag">{{ s.category }}</span>
+        <span class="s-status" [ngClass]="{
+          'status-pending':  s.status === 'En attente',
+          'status-progress': s.status === 'En cours',
+          'status-done':     s.status === 'Réalisé'
+        }">{{ s.status }}</span>
+      </div>
+
+      <h3 class="s-title">{{ s.title }}</h3>
+      <p class="s-desc">{{ s.description }}</p>
+
+      <div class="card-footer">
+        <div class="footer-meta">
+          <span class="s-date">{{ s.date | date:'dd MMM yyyy' }}</span>
+          <span class="s-likes">♥ {{ s.nbLikes }}</span>
+        </div>
+        <button [routerLink]="['/suggestions', s.id]" class="btn-details">Voir →</button>
+      </div>
+    </div>
+  </div>
+
 </div>
