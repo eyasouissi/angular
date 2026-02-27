@@ -7,4 +7,5 @@
   - Workshop 2 : Manipulation des composants
   - Workshop 3 : Implémentation d’un système de navigation
   - Workshop 4 : Création et Validation de Formulaire
+  - Workshop 5 : Les services dans Angular
 
