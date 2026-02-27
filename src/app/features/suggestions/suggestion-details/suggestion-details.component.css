@@ -126,3 +126,37 @@
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+.btn-update {
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-update:hover { background: var(--sage); transform: translateY(-2px); }
+
+.btn-delete {
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent-light);
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-delete:hover { background: var(--accent-pale); transform: translateY(-2px); }
+
+.loading {
+  text-align: center;
+  padding: 4rem;
+  color: var(--ink-muted);
+  font-style: italic;
+}

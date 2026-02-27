@@ -1,39 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Suggestion } from '../../../models/suggestion';
+import { SuggestionService } from '../../../core/Services/suggestion.service';
 
 @Component({
   selector: 'app-suggestion-list',
   templateUrl: './suggestion-list.component.html',
   styleUrls: ['./suggestion-list.component.css']
 })
-export class SuggestionListComponent {
-  suggestions: Suggestion[] = [
-    {
-      id: 1,
-      title: 'Ajouter un dark mode',
-      description: 'Permettre aux utilisateurs de basculer en mode sombre pour réduire la fatigue oculaire.',
-      category: 'Interface',
-      date: new Date('2024-01-10'),
-      status: 'En attente',
-      nbLikes: 14
-    },
-    {
-      id: 2,
-      title: 'Optimiser les performances',
-      description: 'Réduire le temps de chargement des pages en optimisant les requêtes et les assets.',
-      category: 'Technique',
-      date: new Date('2024-01-15'),
-      status: 'En cours',
-      nbLikes: 9
-    },
-    {
-      id: 3,
-      title: 'Refactorer le code',
-      description: 'Améliorer la lisibilité et la maintenabilité du code source existant.',
-      category: 'Technique',
-      date: new Date('2024-01-20'),
-      status: 'Réalisé',
-      nbLikes: 5
+export class SuggestionListComponent implements OnInit {
+
+  suggestions: Suggestion[] = [];
+
+  constructor(private service: SuggestionService) {}
+
+  ngOnInit(): void {
+    this.loadSuggestions();
+  }
+
+  private loadSuggestions(): void {
+    this.service.getSuggestionsList().subscribe(data => this.suggestions = data);
+  }
+
+  deleteSuggestion(id: number): void {
+    if (confirm('Supprimer cette suggestion ?')) {
+      this.service.deleteSuggestion(id).subscribe(() => {
+        this.suggestions = this.suggestions.filter(s => s.id !== id);
+      });
     }
-  ];
+  }
+
+like(s: Suggestion): void {
+  const newLikes = (s.nbLikes || 0) + 1;
+  this.service.updateLikes(s.id, newLikes).subscribe(updated => {
+    s.nbLikes = updated.nbLikes; // met à jour la liste
+    // le détails sera mis à jour automatiquement grâce à likes$
+  });
+
+}
 }

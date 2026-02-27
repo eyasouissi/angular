@@ -13,9 +13,9 @@
       <div class="card-top">
         <span class="s-tag">{{ s.category }}</span>
         <span class="s-status" [ngClass]="{
-          'status-pending':  s.status === 'En attente',
-          'status-progress': s.status === 'En cours',
-          'status-done':     s.status === 'Réalisé'
+          'status-pending':  s.status.toLowerCase() === 'en attente',
+          'status-progress': s.status.toLowerCase() === 'en cours',
+          'status-done':     s.status.toLowerCase() === 'réalisé'
         }">{{ s.status }}</span>
       </div>
 
@@ -25,9 +25,12 @@
       <div class="card-footer">
         <div class="footer-meta">
           <span class="s-date">{{ s.date | date:'dd MMM yyyy' }}</span>
-          <span class="s-likes">♥ {{ s.nbLikes }}</span>
+          <button class="btn-like" (click)="like(s)">♥ {{ s.nbLikes }}</button>
         </div>
-        <button [routerLink]="['/suggestions', s.id]" class="btn-details">Voir →</button>
+        <div class="footer-actions">
+          <button [routerLink]="['/suggestions', s.id]" class="btn-details">Voir →</button>
+          <button (click)="deleteSuggestion(s.id)" class="btn-delete">🗑</button>
+        </div>
       </div>
     </div>
   </div>

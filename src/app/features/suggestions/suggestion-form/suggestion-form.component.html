@@ -3,9 +3,10 @@
 
   <div class="form-card">
     <div class="card-header">
-      <span class="page-tag">Nouvelle suggestion</span>
-      <h1 class="page-title">Partagez votre idée</h1>
-      <p class="page-sub">Chaque grande amélioration commence par une simple idée.</p>
+      <!-- Titre change selon le mode -->
+      <span class="page-tag">{{ isEditMode ? 'Modifier la suggestion' : 'Nouvelle suggestion' }}</span>
+      <h1 class="page-title">{{ isEditMode ? 'Modifier votre idée' : 'Partagez votre idée' }}</h1>
+      <p class="page-sub">{{ isEditMode ? 'Mettez à jour les informations ci-dessous.' : 'Chaque grande amélioration commence par une simple idée.' }}</p>
     </div>
 
     <form class="form-body" [formGroup]="suggestionForm" (ngSubmit)="onSubmit()">
@@ -28,7 +29,7 @@
           placeholder="Décrivez votre suggestion en détail…"></textarea>
         <div *ngIf="suggestionForm.get('description')?.touched && suggestionForm.get('description')?.invalid">
           <span class="error" *ngIf="suggestionForm.get('description')?.errors?.['required']">La description est obligatoire.</span>
-          <span class="error" *ngIf="suggestionForm.get('description')?.errors?.['minlength']">Minimum 30 caractères.</span>
+          <span class="error" *ngIf="suggestionForm.get('description')?.errors?.['minlength']">Minimum 20 caractères.</span>
         </div>
       </div>
 
@@ -60,7 +61,7 @@
       <div class="form-actions">
         <a routerLink="/suggestions" class="btn-cancel">Annuler</a>
         <button type="submit" [disabled]="suggestionForm.invalid" class="btn-submit">
-          🚀 Soumettre la suggestion
+          {{ isEditMode ? '✏️ Sauvegarder' : '🚀 Soumettre' }}
         </button>
       </div>
 

@@ -5,9 +5,10 @@ import { SuggestionDetailsComponent } from './suggestion-details/suggestion-deta
 import { SuggestionFormComponent } from './suggestion-form/suggestion-form.component';
 
 const routes: Routes = [
-  { path: '', component: SuggestionListComponent },
-  { path: 'new', component: SuggestionFormComponent },   // IMPORTANT : avant :id
-  { path: ':id', component: SuggestionDetailsComponent }
+  { path: '',         component: SuggestionListComponent },
+  { path: 'new',      component: SuggestionFormComponent },
+  { path: 'edit/:id', component: SuggestionFormComponent },  // ← mode update
+  { path: ':id',      component: SuggestionDetailsComponent }
 ];
 
 @NgModule({
